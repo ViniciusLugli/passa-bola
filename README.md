@@ -1,7 +1,7 @@
 # Passa a Bola
 
 <p align="center">
-  <img src="https://i.imgur.com/your-logo.png" alt="Logo do Passa a Bola">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8B5pQmu3WV6NFowHTtz5h9dKaCCBVJoRAeA&s" alt="Logo do Passa a Bola">
 </p>
 
 ## ⚽ Visão Geral do Projeto
