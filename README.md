@@ -1,4 +1,4 @@
-# Passa a Bola
+# Passa a Bola - A Rede Social do Futebol Feminino
 
 <p align="center">
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8B5pQmu3WV6NFowHTtz5h9dKaCCBVJoRAeA&s" alt="Logo do Passa a Bola">
@@ -6,25 +6,29 @@
 
 ## ⚽ Visão Geral do Projeto
 
-O **Passa a Bola** é um aplicativo móvel inovador, desenvolvido em parceria com a empresa de mesmo nome, focado no fomento e na valorização do futebol feminino. O projeto visa criar uma rede social robusta e engajadora, onde jogadoras, times e entusiastas do esporte podem se conectar, interagir e crescer juntos.
+Este é um projeto de destaque desenvolvido em colaboração da **FIAP**, como parte do **Desafio de Inovação Tecnológica: Passa a Bola - Tecnologia & Futebol Feminino**. A nossa solução é um aplicativo de rede social mobile que tem como objetivo transformar a maneira como o futebol feminino é vivenciado no ambiente digital.
 
-A plataforma oferece um espaço digital para:
+Em parceria estratégica com o **Passa a Bola**, o principal canal dedicado aos esportes femininos na América Latina, a plataforma busca dar mais visibilidade às atletas e fortalecer a comunidade.
 
-- **Networking e Oportunidades**: Jogadoras podem se promover, construir seus perfis profissionais e serem descobertas por clubes e organizadores.
-- **Interação Social**: Um ambiente para a comunidade do futebol feminino interagir, compartilhar experiências e apoiar umas às outras.
-- **Organização de Eventos**: Funcionalidades para criar e participar de jogos, campeonatos e outros eventos esportivos.
+### Problema e Oportunidade
 
-Nosso objetivo é fortalecer a comunidade do futebol feminino, fornecendo as ferramentas necessárias para que as jogadoras alcancem seu máximo potencial.
+Apesar do crescimento visível do futebol feminino, a modalidade ainda enfrenta desafios digitais, como a falta de plataformas dedicadas e ferramentas de engajamento que limitam seu potencial. Nossa solução aproveita a tecnologia para preencher essa lacuna, criando uma ponte digital para amplificar as vozes e talentos das atletas brasileiras.
+
+### Propósito da Solução
+
+O aplicativo funciona como uma rede social robusta para:
+
+- **Promover Visibilidade**: Permitir que jogadoras se destaquem, construam seus perfis e sejam reconhecidas.
+- **Fortalecer a Comunidade**: Conectar jogadoras, clubes, fãs e organizações, gerando engajamento autêntico e apoiando o protagonismo feminino no esporte.
+- **Organizar Eventos**: Oferecer ferramentas para a criação e participação em jogos e campeonatos, potencializando a experiência do esporte.
 
 ## ✨ Tecnologias e Ferramentas
 
-Este projeto foi construído utilizando as melhores práticas do ecossistema Flutter para criar uma **aplicação mobile multiplataforma (Android e iOS)**, garantindo um código único, responsivo e de alta performance.
+Este projeto foi construído utilizando as melhores práticas do ecossistema Flutter para criar uma aplicação mobile multiplataforma (Android e iOS), garantindo um código único, responsivo e de alta performance.
 
 - **Framework**: [**Flutter**](https://flutter.dev/) - UI toolkit da Google para construir aplicativos nativos e compilados de forma nativa.
-- **Gerenciamento de Estado**: (A ser definido, por exemplo: `Provider`, `Bloc`, `Riverpod`)
 - **Navegação**: [**GoRouter**](https://pub.dev/packages/go_router) - Para uma navegação declarativa e robusta entre as telas.
-- **Design**: Implementação de um design marcante com a identidade visual da empresa, focando em ser responsivo para uma experiência de usuário agradável.
-- **Formatação de Código**: [**dart format**](https://dart.dev/tools/dart-format) - Para garantir a consistência e a legibilidade do código.
+- **Design**: Implementação de um design moderno, responsivo e com um visual vibrante, que seja mantenha a identidade visual da empresa.
 
 ## 🚀 Como Executar o Projeto
 
@@ -65,16 +69,16 @@ A estrutura de diretórios foi projetada para ser modular e escalável, seguindo
 
 ```
 
-passa_bola/
-├── android/ \# Código e configurações nativas para Android
-├── assets/ \# Recursos como imagens, fontes e ícones
-├── ios/ \# Código e configurações nativas para iOS
+passa\_bola/
+├── android/            \# Código e configurações nativas para Android
+├── assets/             \# Recursos como imagens, fontes e ícones
+├── ios/                \# Código e configurações nativas para iOS
 ├── lib/
-│ ├── components/
-│ │ ├── background/ \# Widgets para backgrounds de telas
-│ │ └── utils/ \# Componentes reutilizáveis (botões, inputs, etc.)
-│ ├── pages/ \# Telas principais da aplicação
-│ ├── main.dart \# Ponto de entrada do aplicativo
+│   ├── components/
+│   │   ├── background/ \# Widgets para backgrounds de telas
+│   │   └── utils/      \# Componentes reutilizáveis (botões, inputs, etc.)
+│   ├── pages/          \# Telas principais da aplicação
+│   ├── main.dart       \# Ponto de entrada do aplicativo
 └── ...
 
 ```
@@ -82,5 +86,5 @@ passa_bola/
 ---
 
 <p align="center">
-  Feito com ❤️ por **[Seu Nome ou Usuário do GitHub]**
+  Feito com ❤️ por <strong>Vinícius Lugli</strong>
 </p>
