@@ -5,6 +5,9 @@ import 'package:passa_bola/components/background/bg_register.dart';
 import 'package:passa_bola/components/utils/option.dart';
 import 'package:passa_bola/components/utils/purple_button.dart';
 import 'package:passa_bola/main.dart';
+import 'package:passa_bola/models/user_type.dart';
+import 'package:passa_bola/providers/register_data_provider.dart';
+import 'package:provider/provider.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -14,7 +17,29 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  String? opcaoSelecionada;
+  String? selectedOption;
+
+  void handleContinue() {
+    final registerData = Provider.of<RegisterDataProvider>(
+      context,
+      listen: false,
+    );
+
+    if (selectedOption == 'Organization') {
+      registerData.setUserType(UserType.organization);
+      context.go('');
+    }
+
+    if (selectedOption == 'Player') {
+      registerData.setUserType(UserType.player);
+      context.go('');
+    }
+
+    if (selectedOption == 'Spectator') {
+      registerData.setUserType(UserType.spectator);
+      context.go('');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,43 +81,34 @@ class _RegisterPageState extends State<RegisterPage> {
                 margin: EdgeInsets.only(top: 175),
                 child: Option(
                   title: 'Jogadora',
-                  isSelected: opcaoSelecionada == 'Jogadora',
+                  isSelected: selectedOption == 'Jogadora',
                   onTap: () {
                     setState(() {
-                      opcaoSelecionada = 'Player';
+                      selectedOption = 'Player';
                     });
                   },
                 ),
               ),
               Option(
                 title: 'Organização',
-                isSelected: opcaoSelecionada == 'Organização',
+                isSelected: selectedOption == 'Organização',
                 onTap: () {
                   setState(() {
-                    opcaoSelecionada = 'Organization';
+                    selectedOption = 'Organization';
                   });
                 },
               ),
               Option(
                 title: 'Espectador',
-                isSelected: opcaoSelecionada == 'Espectador',
+                isSelected: selectedOption == 'Espectador',
                 onTap: () {
                   setState(() {
-                    opcaoSelecionada = 'Spectator';
+                    selectedOption = 'Spectator';
                   });
                 },
               ),
               SizedBox(height: 30),
-              Purplebutton(
-                text: 'CONTINUAR',
-                onPressed: () {
-                  if (opcaoSelecionada == 'Player') {}
-                  if (opcaoSelecionada == 'Organization') {
-                    context.go('/register/organization');
-                  }
-                  if (opcaoSelecionada == 'Spectator') {}
-                },
-              ),
+              Purplebutton(text: 'CONTINUAR', onPressed: handleContinue),
             ],
           ),
           Positioned(

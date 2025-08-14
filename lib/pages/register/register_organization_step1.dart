@@ -5,15 +5,35 @@ import 'package:passa_bola/components/background/bg_register.dart';
 import 'package:passa_bola/components/utils/input.dart';
 import 'package:passa_bola/components/utils/purple_button.dart';
 import 'package:passa_bola/main.dart';
+import 'package:passa_bola/providers/register_data_provider.dart';
+import 'package:provider/provider.dart';
 
-class RegisterEnterpriseStep1 extends StatefulWidget {
-  const RegisterEnterpriseStep1({super.key});
+class RegisterOrganizationStep1 extends StatefulWidget {
+  const RegisterOrganizationStep1({super.key});
 
   @override
-  State<RegisterEnterpriseStep1> createState() => _RegisterEnterpriseStep1();
+  State<RegisterOrganizationStep1> createState() => _RegisterEnterpriseStep1();
 }
 
-class _RegisterEnterpriseStep1 extends State<RegisterEnterpriseStep1> {
+class _RegisterEnterpriseStep1 extends State<RegisterOrganizationStep1> {
+  final _cnpjController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
+
+  void handleContinue() {
+    final registerData = Provider.of<RegisterDataProvider>(
+      context,
+      listen: false,
+    );
+
+    registerData.updateOrganizationData(
+      cnpj: _cnpjController.text,
+      password: _passwordController.text,
+    );
+
+    context.go('/register/enterprise/nextStep');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,17 +72,20 @@ class _RegisterEnterpriseStep1 extends State<RegisterEnterpriseStep1> {
             children: [
               Container(
                 margin: EdgeInsets.only(top: 110),
-                child: Input(placeholder: 'CNPJ'),
+                child: Input(placeholder: 'CNPJ', controller: _cnpjController),
               ),
-              Input(placeholder: 'Senha', obscureText: true),
-              Input(placeholder: 'Confirme sua senha', obscureText: true),
+              Input(
+                placeholder: 'Senha',
+                obscureText: true,
+                controller: _passwordController,
+              ),
+              Input(
+                placeholder: 'Confirme sua senha',
+                obscureText: true,
+                controller: _confirmPasswordController,
+              ),
               SizedBox(height: 50),
-              Purplebutton(
-                text: 'CONTINUAR',
-                onPressed: () {
-                  context.go('/register/enterprise/nextStep');
-                },
-              ),
+              Purplebutton(text: 'CONTINUAR', onPressed: handleContinue),
             ],
           ),
           Positioned(

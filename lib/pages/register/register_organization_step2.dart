@@ -6,14 +6,14 @@ import 'package:passa_bola/components/utils/input.dart';
 import 'package:passa_bola/components/utils/purple_button.dart';
 import 'package:passa_bola/main.dart';
 
-class RegisterEnterpriseStep2 extends StatefulWidget {
-  const RegisterEnterpriseStep2({super.key});
+class RegisterOrganizationStep2 extends StatefulWidget {
+  const RegisterOrganizationStep2({super.key});
 
   @override
-  State<RegisterEnterpriseStep2> createState() => _RegisterEnterpriseStep2();
+  State<RegisterOrganizationStep2> createState() => _RegisterEnterpriseStep2();
 }
 
-class _RegisterEnterpriseStep2 extends State<RegisterEnterpriseStep2> {
+class _RegisterEnterpriseStep2 extends State<RegisterOrganizationStep2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:passa_bola/providers/register_data_provider.dart';
+import 'package:provider/provider.dart';
 import 'package:passa_bola/pages/login.dart';
 import 'package:passa_bola/pages/register/register_organization_step1.dart';
 import 'package:passa_bola/pages/register/register_organization_step2.dart';
@@ -27,16 +29,16 @@ final GoRouter _router = GoRouter(
   routes: [
     GoRoute(path: '/login', builder: (context, state) => const LoginPage()),
     GoRoute(
-      path: '/organization',
+      path: '/register',
       builder: (context, state) => const RegisterPage(),
     ),
     GoRoute(
       path: '/register/organization',
-      builder: (context, state) => const RegisterEnterpriseStep1(),
+      builder: (context, state) => const RegisterOrganizationStep1(),
       routes: [
         GoRoute(
           path: 'nextStep',
-          builder: (context, state) => const RegisterEnterpriseStep2(),
+          builder: (context, state) => const RegisterOrganizationStep2(),
         ),
       ],
     ),
@@ -44,7 +46,12 @@ final GoRouter _router = GoRouter(
 );
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => RegisterDataProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
