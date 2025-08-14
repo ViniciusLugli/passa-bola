@@ -2,20 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:passa_bola/components/background/bg_register.dart';
-import 'package:passa_bola/components/utils/option.dart';
+import 'package:passa_bola/components/utils/input.dart';
 import 'package:passa_bola/components/utils/purple_button.dart';
 import 'package:passa_bola/main.dart';
 
-class RegisterPage extends StatefulWidget {
-  const RegisterPage({super.key});
+class RegisterEnterpriseStep1 extends StatefulWidget {
+  const RegisterEnterpriseStep1({super.key});
 
   @override
-  State<RegisterPage> createState() => _RegisterPageState();
+  State<RegisterEnterpriseStep1> createState() => _RegisterEnterpriseStep1();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
-  String? opcaoSelecionada;
-
+class _RegisterEnterpriseStep1 extends State<RegisterEnterpriseStep1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,9 +35,9 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
 
           Container(
-            margin: EdgeInsets.only(top: 340, left: 50, right: 50),
+            margin: EdgeInsets.only(top: 270, left: 50, right: 50),
             child: Text(
-              'Quero me cadastrar como...',
+              'Insira suas informações...',
               style: TextStyle(
                 fontSize: 20,
                 fontFamily: AppFonts.mainFont,
@@ -53,37 +51,18 @@ class _RegisterPageState extends State<RegisterPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                margin: EdgeInsets.only(top: 175),
-                child: Option(
-                  title: 'Jogadora',
-                  isSelected: opcaoSelecionada == 'Jogadora',
-                  onTap: () {
-                    setState(() {
-                      opcaoSelecionada = 'Jogadora';
-                    });
-                  },
-                ),
+                margin: EdgeInsets.only(top: 110),
+                child: Input(placeholder: 'CNPJ'),
               ),
-              Option(
-                title: 'Organização',
-                isSelected: opcaoSelecionada == 'Organização',
-                onTap: () {
-                  setState(() {
-                    opcaoSelecionada = 'Organização';
-                  });
+              Input(placeholder: 'Senha', obscureText: true),
+              Input(placeholder: 'Confirme sua senha', obscureText: true),
+              SizedBox(height: 50),
+              Purplebutton(
+                text: 'CONTINUAR',
+                onPressed: () {
+                  context.go('/register/enterprise/nextStep');
                 },
               ),
-              Option(
-                title: 'Espectador',
-                isSelected: opcaoSelecionada == 'Espectador',
-                onTap: () {
-                  setState(() {
-                    opcaoSelecionada = 'Espectador';
-                  });
-                },
-              ),
-              SizedBox(height: 30),
-              Purplebutton(text: 'CONTINUAR', onPressed: () {}),
             ],
           ),
           Positioned(

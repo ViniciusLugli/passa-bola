@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:passa_bola/pages/login.dart';
-import 'pages/register.dart';
+import 'package:passa_bola/pages/register/register_enterprise_step1.dart';
+import 'package:passa_bola/pages/register/register_enterprise_step2.dart';
+import 'pages/register/register.dart';
 
 class AppColors {
   static const Color purple = Color(0xff7F1BA2);
@@ -21,12 +23,22 @@ class AppFonts {
 
 // Configurando as rotas
 final GoRouter _router = GoRouter(
-  initialLocation: '/register',
+  initialLocation: '/login',
   routes: [
     GoRoute(path: '/login', builder: (context, state) => const LoginPage()),
     GoRoute(
       path: '/register',
       builder: (context, state) => const RegisterPage(),
+    ),
+    GoRoute(
+      path: '/register/enterprise',
+      builder: (context, state) => const RegisterEnterpriseStep1(),
+      routes: [
+        GoRoute(
+          path: 'nextStep',
+          builder: (context, state) => const RegisterEnterpriseStep2(),
+        ),
+      ],
     ),
   ],
 );
