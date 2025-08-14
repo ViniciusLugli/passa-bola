@@ -1,5 +1,3 @@
-// spectator.dart
-
 import 'package:passa_bola/models/account.dart';
 import 'package:passa_bola/models/user_type.dart';
 
