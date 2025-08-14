@@ -59,7 +59,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   isSelected: opcaoSelecionada == 'Jogadora',
                   onTap: () {
                     setState(() {
-                      opcaoSelecionada = 'Jogadora';
+                      opcaoSelecionada = 'Player';
                     });
                   },
                 ),
@@ -69,7 +69,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 isSelected: opcaoSelecionada == 'Organização',
                 onTap: () {
                   setState(() {
-                    opcaoSelecionada = 'Organização';
+                    opcaoSelecionada = 'Organization';
                   });
                 },
               ),
@@ -78,7 +78,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 isSelected: opcaoSelecionada == 'Espectador',
                 onTap: () {
                   setState(() {
-                    opcaoSelecionada = 'Espectador';
+                    opcaoSelecionada = 'Spectator';
                   });
                 },
               ),
@@ -86,11 +86,11 @@ class _RegisterPageState extends State<RegisterPage> {
               Purplebutton(
                 text: 'CONTINUAR',
                 onPressed: () {
-                  if (opcaoSelecionada == 'Jogadora') {}
-                  if (opcaoSelecionada == 'Organização') {
-                    context.go('/register/enterprise');
+                  if (opcaoSelecionada == 'Player') {}
+                  if (opcaoSelecionada == 'Organization') {
+                    context.go('/register/organization');
                   }
-                  if (opcaoSelecionada == 'Espectador') {}
+                  if (opcaoSelecionada == 'Spectator') {}
                 },
               ),
             ],
