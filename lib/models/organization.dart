@@ -39,7 +39,7 @@ class Organization extends Account {
     List<String> stringCnpj = cnpj.replaceAll(unwantedCaracters, '').split('');
     List<int> intCnpj = stringCnpj.map((e) => int.parse(e)).toList();
 
-    if (stringCnpj.length != 14) {
+    if (stringCnpj.length != 14 || intCnpj.toSet().length == 1) {
       return false;
     }
 
