@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:passa_bola/models/organization.dart';
 import 'package:passa_bola/providers/register_data_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:passa_bola/pages/login.dart';
@@ -46,6 +47,7 @@ final GoRouter _router = GoRouter(
 );
 
 void main() {
+  print(Organization.validateCnpj('11.222.333/0001-81'));
   runApp(
     ChangeNotifierProvider(
       create: (context) => RegisterDataProvider(),
