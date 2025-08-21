@@ -35,41 +35,37 @@ class Organization extends Account {
 
   static bool validateCnpj(String cnpj) {
     RegExp unwantedCaracters = RegExp(r'[./-]');
-
     List<String> stringCnpj = cnpj.replaceAll(unwantedCaracters, '').split('');
-    List<int> intCnpj = stringCnpj.map((e) => int.parse(e)).toList();
 
-    if (stringCnpj.length != 14 || intCnpj.toSet().length == 1) {
+    if (stringCnpj.length != 14 || stringCnpj.toSet().length == 1) {
       return false;
     }
 
     List<int> weight = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
-    List<int> copyCnpj = intCnpj.sublist(0, 12);
+    List<String> copyCnpj = stringCnpj.sublist(0, 12);
 
     int sumFirstDigit = 0;
     for (int i = 0; i < weight.length; i++) {
-      sumFirstDigit += copyCnpj[i] * weight[i];
+      sumFirstDigit += (copyCnpj[i].codeUnitAt(0) - 48) * weight[i];
     }
 
     int firstDigit = sumFirstDigit % 11 < 2 ? 0 : 11 - (sumFirstDigit % 11);
-
-    if (firstDigit != intCnpj[12]) {
+    if (firstDigit.toString() != stringCnpj[12]) {
       return false;
     }
 
-    copyCnpj.add(firstDigit);
+    copyCnpj.add(firstDigit.toString());
     weight.insert(0, 6);
 
     int sumSecondDigit = 0;
-
     for (int i = 0; i < weight.length; i++) {
-      sumSecondDigit += copyCnpj[i] * weight[i];
+      sumSecondDigit += (copyCnpj[i].codeUnitAt(0) - 48) * weight[i];
     }
 
     int secondDigit = sumSecondDigit % 11 < 2 ? 0 : 11 - (sumSecondDigit % 11);
-    copyCnpj.add(secondDigit);
+    copyCnpj.add(secondDigit.toString());
 
-    if (!listEquals(copyCnpj, intCnpj)) {
+    if (!listEquals(copyCnpj, stringCnpj)) {
       return false;
     }
 
